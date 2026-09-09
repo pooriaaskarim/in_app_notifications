@@ -41,12 +41,21 @@ jobs:
       - name: Install root dependencies
         run: flutter pub get
 
+      - name: Generate Dartdoc API reference
+        run: dart doc --output doc/api
+
       - name: Install example dependencies
         run: flutter pub get
         working-directory: example
 
       - name: Build Flutter Web
         run: flutter build web --release --base-href "/${{ github.event.repository.name }}/"
+        working-directory: example
+
+      - name: Copy API docs into web release
+        run: |
+          mkdir -p build/web/api
+          cp -r ../doc/api/* build/web/api/
         working-directory: example
 
       - name: Add 404.html fallback for SPA routing

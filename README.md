@@ -1,5 +1,6 @@
 # FlutterNotificationQueue
 
+[![CI](https://github.com/pooriaaskarim/flutter_notification_queue/actions/workflows/ci.yml/badge.svg)](https://github.com/pooriaaskarim/flutter_notification_queue/actions/workflows/ci.yml)
 [![Pub Version](https://img.shields.io/pub/v/flutter_notification_queue)](https://pub.dev/packages/flutter_notification_queue)
 [![Pub Likes](https://img.shields.io/pub/likes/flutter_notification_queue)](https://pub.dev/packages/flutter_notification_queue)
 [![Pub Points](https://img.shields.io/pub/points/flutter_notification_queue)](https://pub.dev/packages/flutter_notification_queue)

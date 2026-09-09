@@ -27,7 +27,7 @@ part of 'behaviors.dart';
 /// or `ConfigurationManager` will throw an [ArgumentError].
 ///
 /// See also:
-/// - `ConfigurationManager._validateInputResilience`, which enforces this.
+/// - `ConfigurationManager` input resilience validation, which enforces this.
 sealed class QueueCloseButtonBehavior {
   /// Creates a close button behavior.
   const QueueCloseButtonBehavior();

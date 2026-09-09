@@ -10,7 +10,7 @@ Add `flutter_notification_queue` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_notification_queue: ^Latest
+  flutter_notification_queue: ^0.4.0
 ```
 
 Import the package in your Dart file:
