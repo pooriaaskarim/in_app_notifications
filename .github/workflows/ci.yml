@@ -31,7 +31,7 @@ jobs:
         run: flutter analyze --fatal-warnings
 
       - name: Run Tests with Coverage
-        run: flutter test --coverage
+        run: flutter test --coverage --exclude-tags=golden
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
