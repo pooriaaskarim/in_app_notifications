@@ -188,14 +188,27 @@ void _writeChannel(final StringBuffer buf, final ChannelSetup c) {
   buf.writeln('    ),');
 }
 
-String _styleSnippet(final QueueSetup q) => '${q.styleType}(\n'
+String _styleClassName(final Type t) => switch (t) {
+      == FilledQueueStyle => 'FilledQueueStyle',
+      == FlatQueueStyle => 'FlatQueueStyle',
+      == OutlinedQueueStyle => 'OutlinedQueueStyle',
+      _ => t.toString(),
+    };
+
+String _styleSnippet(final QueueSetup q) =>
+    '${_styleClassName(q.styleType)}(\n'
     '        opacity: ${q.opacity},\n'
     '        elevation: ${q.elevation},\n'
     '        borderRadius: '
     'BorderRadius.circular(${q.borderRadius}),\n'
     '      )';
 
-String _transitionSnippet(final Type t) => 'const $t()';
+String _transitionSnippet(final Type t) => switch (t) {
+      == SlideTransitionStrategy => 'const SlideTransitionStrategy()',
+      == FadeTransitionStrategy => 'const FadeTransitionStrategy()',
+      == ScaleTransitionStrategy => 'const ScaleTransitionStrategy()',
+      _ => 'const $t()',
+    };
 
 String _behaviorSnippet(final Type t, final QueueSetup q, final bool isDrag) {
   final zone = isDrag ? q.dragDismissZone : q.longPressDismissZone;
@@ -225,4 +238,9 @@ String _behaviorSnippet(final Type t, final QueueSetup q, final bool isDrag) {
   return 'const Disabled()';
 }
 
-String _closeButtonSnippet(final Type t) => 'const $t()';
+String _closeButtonSnippet(final Type t) => switch (t) {
+      == AlwaysVisible => 'const AlwaysVisible()',
+      == VisibleOnHover => 'const VisibleOnHover()',
+      == Hidden => 'const Hidden()',
+      _ => 'const $t()',
+    };

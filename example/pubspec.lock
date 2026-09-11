@@ -148,7 +148,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.4.0"
+    version: "0.4.1"
   flutter_test:
     dependency: "direct main"
     description: flutter
@@ -227,10 +227,10 @@ packages:
     dependency: transitive
     description:
       name: logd
-      sha256: ab849bccb720bcd199a4083356d90bcea52d71ac6bff3906c9f0e83e600648f7
+      sha256: "2e2530beee914c860d9a0b39c4a578f60558b6f981ae36cba45e2a970ac870ee"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.6"
+    version: "0.9.6"
   matcher:
     dependency: transitive
     description:
@@ -308,6 +308,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  source_maps:
+    dependency: transitive
+    description:
+      name: source_maps
+      sha256: "14c2945847669b44089bb1222f66873d7ff7103c58911917f2a63c5a62327898"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.10.14"
   source_span:
     dependency: transitive
     description:
@@ -360,10 +368,10 @@ packages:
     dependency: transitive
     description:
       name: timezone
-      sha256: "784a5e34d2eb62e1326f24d6f600aaaee452eb8ca8ef2f384a59244e292d158b"
+      sha256: "981d1020d6ef8fe1e7b3de5054e5b25579ae7c403d7734adc508ffc47668e9cb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.11.0"
+    version: "0.11.1"
   typed_data:
     dependency: transitive
     description:

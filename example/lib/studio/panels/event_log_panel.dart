@@ -256,7 +256,12 @@ class _EventMeta {
             color: isDark
                 ? const Color(0xFF34D399)
                 : const Color(0xFF047857), // emerald-400 : emerald-700
-            badge: behavior.runtimeType.toString(),
+            badge: switch (behavior) {
+              TapToDismiss() => 'TapToDismiss',
+              TapToExpand() => 'TapToExpand',
+              TapToAct() => 'TapToAct',
+              TapDisabled() => 'TapDisabled',
+            },
             subtitle: notification.title ?? notification.message,
           ),
         NotificationRelocated(:final from, :final to, :final notification) =>

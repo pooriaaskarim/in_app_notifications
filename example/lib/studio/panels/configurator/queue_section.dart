@@ -166,6 +166,10 @@ class _QueueEditor extends StatelessWidget {
   ];
 
   String _formatBehaviorType(final Type t) => switch (t) {
+        == Disabled => 'DISABLED',
+        == Dismiss => 'DISMISS',
+        == Reorder => 'REORDER',
+        == Relocate => 'RELOCATE',
         == ReorderAndRelocate => 'REORDER & RELOCATE',
         _ => t.toString().toUpperCase(),
       };
@@ -315,8 +319,12 @@ class _QueueEditor extends StatelessWidget {
               label: 'VISUAL STYLE',
               value: setup.styleType,
               items: _styleTypes,
-              itemLabel: (final t) =>
-                  t.toString().replaceAll('QueueStyle', '').toUpperCase(),
+              itemLabel: (final t) => switch (t) {
+                == FilledQueueStyle => 'FILLED',
+                == FlatQueueStyle => 'FLAT',
+                == OutlinedQueueStyle => 'OUTLINED',
+                _ => t.toString().replaceAll('QueueStyle', '').toUpperCase(),
+              },
               onChanged: (final v) => context.read<SetupBloc>().add(
                     UpdateQueue(
                       position,
@@ -329,10 +337,15 @@ class _QueueEditor extends StatelessWidget {
               label: 'TRANSITION STRATEGY',
               value: setup.transitionType,
               items: _transitionTypes,
-              itemLabel: (final t) => t
-                  .toString()
-                  .replaceAll('TransitionStrategy', '')
-                  .toUpperCase(),
+              itemLabel: (final t) => switch (t) {
+                == SlideTransitionStrategy => 'SLIDE',
+                == FadeTransitionStrategy => 'FADE',
+                == ScaleTransitionStrategy => 'SCALE',
+                _ => t
+                    .toString()
+                    .replaceAll('TransitionStrategy', '')
+                    .toUpperCase(),
+              },
               onChanged: (final v) => context.read<SetupBloc>().add(
                     UpdateQueue(
                       position,
@@ -452,7 +465,12 @@ class _QueueEditor extends StatelessWidget {
               label: 'CLOSE BUTTON VISIBILITY',
               value: setup.closeButtonBehaviorType,
               items: _closeButtonTypes,
-              itemLabel: (final e) => e.toString().toUpperCase(),
+              itemLabel: (final e) => switch (e) {
+                == AlwaysVisible => 'ALWAYS VISIBLE',
+                == VisibleOnHover => 'VISIBLE ON HOVER',
+                == Hidden => 'HIDDEN',
+                _ => e.toString().toUpperCase(),
+              },
               onChanged: (final v) => context.read<SetupBloc>().add(
                     UpdateQueue(
                       position,

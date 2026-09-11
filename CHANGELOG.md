@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.4.1] - 2026-09-12
+
+### Studio & Web Deployment
+- **Web Release Display Fix**: Fixed an issue in the Studio web app where configurator options and generated code snippets displayed minified type names in web release builds.
+
 ## [0.4.0] - 2026-08-30
 
 ### Breaking API Changes (Deprecated Surface Removal)
