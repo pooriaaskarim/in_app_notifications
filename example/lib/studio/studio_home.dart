@@ -11,6 +11,7 @@ import 'panels/code_editor_panel.dart';
 import 'panels/configurator_panel.dart';
 import 'panels/event_log_panel.dart';
 import 'studio_theme.dart';
+import 'widgets/project_info_dialog.dart';
 
 /// The root layout for NFQ Studio.
 ///
@@ -96,6 +97,11 @@ class _StudioShellState extends State<_StudioShell> {
                   .withValues(alpha: 0.85),
               elevation: 0,
               actions: [
+                IconButton(
+                  onPressed: () => ProjectInfoDialog.show(context),
+                  icon: const Icon(Icons.info_outline, size: 20),
+                  tooltip: 'About & Project Info',
+                ),
                 BlocBuilder<StudioBloc, StudioState>(
                   builder: (final context, final state) => IconButton(
                     onPressed: () {
@@ -303,16 +309,19 @@ class _VersionBadgeState extends State<_VersionBadge> {
           if (version == null || version.isEmpty) {
             return const SizedBox.shrink();
           }
-          return Text(
-            'v$version',
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context)
-                  .colorScheme
-                  .onSurface
-                  .withValues(alpha: 0.45),
-              letterSpacing: 0.5,
+          return GestureDetector(
+            onTap: () => ProjectInfoDialog.show(context, version: version),
+            child: Text(
+              'v$version',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: Theme.of(context)
+                    .colorScheme
+                    .onSurface
+                    .withValues(alpha: 0.45),
+                letterSpacing: 0.5,
+              ),
             ),
           );
         },
