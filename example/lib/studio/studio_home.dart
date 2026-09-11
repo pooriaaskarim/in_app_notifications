@@ -276,6 +276,7 @@ class _VersionBadgeState extends State<_VersionBadge> {
     } on Object catch (_) {}
 
     final candidates = [
+      'packages/flutter_notification_queue/pubspec.yaml',
       '../pubspec.yaml',
       'pubspec.yaml',
       'assets/pubspec.yaml',
@@ -302,24 +303,16 @@ class _VersionBadgeState extends State<_VersionBadge> {
           if (version == null || version.isEmpty) {
             return const SizedBox.shrink();
           }
-          final colorScheme = Theme.of(context).colorScheme;
-          return Container(
-            padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
-            decoration: BoxDecoration(
-              color: colorScheme.primary.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: colorScheme.primary.withValues(alpha: 0.3),
-              ),
-            ),
-            child: Text(
-              'v$version',
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w700,
-                color: colorScheme.primary,
-                letterSpacing: 0.5,
-              ),
+          return Text(
+            'v$version',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onSurface
+                  .withValues(alpha: 0.45),
+              letterSpacing: 0.5,
             ),
           );
         },
